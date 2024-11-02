@@ -1,3 +1,4 @@
+---todxyz
 local UIS = game:GetService("UserInputService")
 
 local library = {}
@@ -168,6 +169,7 @@ function library:init(setclip)
 	end
 
 	function main:AddPlayer(playerName)
+		local x = {}
 		local playerToAdd = game.Players:FindFirstChild(playerName)
 		if playerToAdd then
 			local DisplayName = playerToAdd.DisplayName
@@ -187,17 +189,17 @@ function library:init(setclip)
 			PlayerExample.Font = Enum.Font.Gotham
 			PlayerExample.TextColor3 = Color3.fromRGB(0, 0, 0)
 			PlayerExample.TextSize = 14.000
-			
-			PlayerExample.MouseButton1Click(function()
-				local succ, err = pcall(function() newFunction(DisplayName) end)
-				if not succ then print(err) end
-			end)
 
+			function x:SetCallback(na)
+				PlayerExample.MouseButton1Click = na
+			end
+			
 			ExampleCorner.CornerRadius = UDim.new(0, 4)
 			ExampleCorner.Name = "ExampleCorner"
 			ExampleCorner.Parent = PlayerExample
-
 		end
+		return x
+
 	end
 	
 
