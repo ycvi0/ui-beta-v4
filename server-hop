@@ -1,7 +1,5 @@
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-local PlaceID = game.PlaceId
+
+local PlaceID = getgenv().placeId
 local AllIDs = {}
 local foundAnything = ""
 local actualHour = os.date("!*t").hour
@@ -51,15 +49,15 @@ function TPReturner()
                 pcall(function()
                     writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
                     wait()
+                    game:GetService("TeleportService"):TeleportCancel()
                     game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                 end)
-                wait(4)
+                wait(3.5)
             end
         end
     end
 end
 
-function Teleport()
     while wait() do
         pcall(function()
             TPReturner()
@@ -68,7 +66,3 @@ function Teleport()
             end
         end)
     end
-end
-
--- If you'd like to use a script before server hopping (Like a Automatic Chest collector you can put the Teleport() after it collected everything.
-Teleport()
