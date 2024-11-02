@@ -2,7 +2,7 @@ local UIS = game:GetService("UserInputService")
 
 local library = {}
 
-function library:init()
+function library:init(setclip)
 	local main = {}	
 
 	local Main = Instance.new("ScreenGui")
@@ -18,7 +18,7 @@ function library:init()
 	local ServerHop = Instance.new("TextButton")
 	
 	Main.Name = "Main"
-	Main.Parent = game.CoreGui
+	Main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Container.Name = "Container"
@@ -131,6 +131,7 @@ function library:init()
 	ToolTip.TextSize = 12.000
 	ToolTip.TextWrapped = true
 	ToolTip.TextXAlignment = Enum.TextXAlignment.Left
+	ToolTip.RichText = true
 	
 	Status.Name = "Status"
 	Status.Parent = Container
@@ -146,6 +147,7 @@ function library:init()
 	Status.TextSize = 12.000
 	Status.TextWrapped = true
 	Status.TextXAlignment = Enum.TextXAlignment.Left
+	Status.RichText = true
 	
 	ServerHop.Name = "ServerHop"
 	ServerHop.Parent = Main
@@ -159,6 +161,8 @@ function library:init()
 	ServerHop.TextColor3 = Color3.fromRGB(0, 0, 0)
 	ServerHop.TextSize = 14.000
 	
+	local newFunction = setclip
+
 	function main:UpdateStatus(status)
 		Status.Text = '<b>Status: </b> ' .. status
 	end
@@ -185,14 +189,13 @@ function library:init()
 			PlayerExample.TextSize = 14.000
 			
 			PlayerExample.MouseButton1Click(function()
-				local succ, err = pcall(function() setclipboard(DisplayName) end)
+				local succ, err = pcall(function() newFunction(DisplayName) end)
 				if not succ then print(err) end
 			end)
 
 			ExampleCorner.CornerRadius = UDim.new(0, 4)
 			ExampleCorner.Name = "ExampleCorner"
 			ExampleCorner.Parent = PlayerExample
-
 
 		end
 	end
