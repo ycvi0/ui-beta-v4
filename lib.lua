@@ -155,7 +155,7 @@ function library:init(setclip)
 	ServerHop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ServerHop.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ServerHop.BorderSizePixel = 0
-	ServerHop.Position = UDim2.new(0.429965168, 0, 0.0339195989, 0)
+	ServerHop.Position = UDim2.new(0.429965168, 0, 0.0439195989, 0)
 	ServerHop.Size = UDim2.new(0, 200, 0, 27)
 	ServerHop.Font = Enum.Font.SourceSans
 	ServerHop.Text = "Server Hop"
