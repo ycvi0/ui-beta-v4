@@ -191,7 +191,7 @@ function library:init(setclip)
 			PlayerExample.TextSize = 14.000
 
 			function x:SetCallback(na)
-				PlayerExample.MouseButton1Click = na
+				PlayerExample.MouseButton1Click:Connect(na)
 			end
 			
 			ExampleCorner.CornerRadius = UDim.new(0, 4)
