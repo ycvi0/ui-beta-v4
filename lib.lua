@@ -18,7 +18,7 @@ function library:init()
 	local ServerHop = Instance.new("TextButton")
 	
 	Main.Name = "Main"
-	Main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Main.Parent = game.CoreGui
 	Main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Container.Name = "Container"
